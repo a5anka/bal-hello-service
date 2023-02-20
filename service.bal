@@ -7,11 +7,11 @@ service / on new http:Listener(9090) {
     # A resource for generating greetings
     # + currencyCode - the input string name
     # + return - string name with hello message or error
-    resource function get price(string currencyCode) returns string|error {
+    resource function get price/[string productCode](string currencyCode) returns string|error {
         // Send a response back to the caller.
         if currencyCode is "" {
             return error("name should not be empty!");
         }
-        return "Hello, " + currencyCode;
+        return "Hello, " + currencyCode + " product " + productCode;
     }
 }
