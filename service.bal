@@ -11,10 +11,10 @@ type PricingInfo record {
     string validUntil;
 };
 
-// Pricing service is used to calculate the price of a product and.
+// Pricing service is used to calculate the price of a product.
 service / on new http:Listener(9090) {
 
-    // Return the price of a product from the product code and the currency code.
+    // Return the price of a product from the product code and the currency code and.
     // + productCode - The product code
     // + currencyCode - The currency code
     // + return - Product details
