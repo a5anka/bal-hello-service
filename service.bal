@@ -26,13 +26,13 @@ service / on new http:Listener(9090) {
             "Accept": "application/json"
         });
 
-        // Creates client to call the exchange service
+        // Create client to call the exchange service
         http:Client exchangeClient = check new(EXCHANGE_RATE_API_URL);
 
 
         string fromCurrency = check productResponse.Product.PriceCurrency;
         string price = check productResponse.Product.Price;
-        // Call exchange service to get the exchange rate convert?from=USD&to=EUR&amount=100
+        // Calls exchange service to get the exchange rate convert?from=USD&to=EUR&amount=100
         json exchangeResponse = check exchangeClient->/convert('from = fromCurrency, to = currencyCode, amount = price);
 
         PricingInfo product = {
