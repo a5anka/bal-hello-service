@@ -14,13 +14,13 @@ type PricingInfo record {
 // Pricing service is used to calculate the price of a product.
 service / on new http:Listener(9090) {
 
-    // Return the price of a product from the product code and the currency code and.
+    // Return the price of a product from the product code and the currency code.
     // + productCode - The product code
     // + currencyCode - The currency code
     // + return - Product details
     resource function get price/[string productCode](string currencyCode) returns PricingInfo|error {
 
-        // Call product service to get the product details
+        // Call product service to get the product details and
         http:Client productClient = check new(productApiUrl);
         json productResponse = check productClient->/product/[productCode]({
             "Accept": "application/json"
