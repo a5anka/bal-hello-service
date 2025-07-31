@@ -11,7 +11,7 @@ type PricingInfo record {
     string validUntil;
 };
 
-// Pricing service is used to calculate the price of a products.
+// Pricing service is used to calculate the price of a product.
 service / on new http:Listener(9090) {
 
     // Return the price of a product from the product code and the currency code.
@@ -26,7 +26,7 @@ service / on new http:Listener(9090) {
             "Accept": "application/json"
         });
 
-        // Create client to call the exchange service
+        // Creates client to call the exchange service
         http:Client exchangeClient = check new(EXCHANGE_RATE_API_URL);
 
 
