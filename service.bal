@@ -20,13 +20,13 @@ service / on new http:Listener(9090) {
     // + return - Product details
     resource function get price/[string productCode](string currencyCode) returns PricingInfo|error {
 
-        // Call product service to get the product details and
+        // Call product service to get the product details
         http:Client productClient = check new(productApiUrl);
         json productResponse = check productClient->/product/[productCode]({
             "Accept": "application/json"
         });
 
-        // Create client to call the exchange service
+        // Create client to call the exchange service and
         http:Client exchangeClient = check new(EXCHANGE_RATE_API_URL);
 
 
